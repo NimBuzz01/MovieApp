@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Movies(
     @PrimaryKey val id: Int,
     val title: String?,
-    val year: Int?,
+    val year: String?,
     val rated: String?,
     val released: String?,
     val runtime: String?,
