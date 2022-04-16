@@ -9,8 +9,7 @@
     <string name="movies_in_db">Movies in DB</string>
     <string name="search">Search</string>
     <string name="add_to_db">Add to DB</string>
-    <string name="name">Name</string>
     <string name="searchA">Search</string>
     <string name="add_to_dbA">Add to DB</string>
-    <string name="nameA">Name</string>
+    <string name="searchAdd">Search</string>
 </resources>
