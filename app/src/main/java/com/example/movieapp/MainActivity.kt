@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         addMoviesBtn = findViewById(R.id.addMoviesBtn)
         searchActorsBtn = findViewById(R.id.searchActorsBtn)
         searchMoviesBtn = findViewById(R.id.searchMoviesBtn)
+        searchBtn = findViewById(R.id.searchBtn)
 
         val db = Room.databaseBuilder(
             this, MoviesDatabase::class.java,
@@ -125,6 +126,10 @@ class MainActivity : AppCompatActivity() {
         }
         searchActorsBtn.setOnClickListener{
             val intent = Intent(this, SearchActors::class.java)
+            startActivity(intent)
+        }
+        searchBtn.setOnClickListener{
+            val intent = Intent(this, SearchName::class.java)
             startActivity(intent)
         }
 

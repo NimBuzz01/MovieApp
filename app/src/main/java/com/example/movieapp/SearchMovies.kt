@@ -65,7 +65,6 @@ class SearchMovies : AppCompatActivity() {
 
         movieBtn.setOnClickListener {
             val movieName = getMovie.text.toString()
-            print(movieName)
             val urlString = "https://www.omdbapi.com/?t=${movieName}&apikey=7086918a";
             val url = URL(urlString)
             val con: HttpURLConnection = url.openConnection() as HttpURLConnection
