@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -113,6 +114,7 @@ class SearchMovies : AppCompatActivity() {
                     }
                 }
             }
+            Toast.makeText(applicationContext,"Movie Added to DB!",Toast.LENGTH_SHORT).show()
         }
 
     }

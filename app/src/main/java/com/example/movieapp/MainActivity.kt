@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var searchActorsBtn: Button
     private lateinit var searchMoviesBtn: Button
     private lateinit var searchBtn: Button
+    private lateinit var viewDBBtn: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         searchActorsBtn = findViewById(R.id.searchActorsBtn)
         searchMoviesBtn = findViewById(R.id.searchMoviesBtn)
         searchBtn = findViewById(R.id.searchBtn)
+        viewDBBtn = findViewById(R.id.viewDBBtn)
 
         val db = Room.databaseBuilder(
             this, MoviesDatabase::class.java,
@@ -114,11 +117,10 @@ class MainActivity : AppCompatActivity() {
                     editor.apply()
 
                     moviesDao.insertMovies(movie1, movie2, movie3, movie4, movie5)
-                    //val movies: List<Movies> = moviesDao.getAll()
                 }
             }
-            val intent = Intent(this, AddMovies::class.java)
-            startActivity(intent)
+            Toast.makeText(applicationContext,"Movies from json Added!",Toast.LENGTH_SHORT).show()
+
         }
         searchMoviesBtn.setOnClickListener{
             val intent = Intent(this, SearchMovies::class.java)
@@ -132,6 +134,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SearchName::class.java)
             startActivity(intent)
         }
+        viewDBBtn.setOnClickListener {
+            val intent = Intent(this, ViewDB::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }

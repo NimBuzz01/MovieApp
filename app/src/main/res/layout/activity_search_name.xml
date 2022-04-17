@@ -4,48 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="LabelFor"
-    tools:context=".SearchName">
+    tools:context=".SearchName"
+    tools:ignore="LabelFor">
 
     <Button
         android:id="@+id/nameBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="78dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="26dp"
         android:text="@string/searchName"
         app:layout_constraintBottom_toTopOf="@+id/nameTv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/getName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/nameHeading" />
 
     <EditText
         android:id="@+id/getName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="81dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="7dp"
+        android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/nameTv"
         app:layout_constraintEnd_toStartOf="@+id/nameBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="@+id/nameBtn"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/nameTv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginEnd="37dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
         android:layout_marginBottom="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getName" />
+        app:layout_constraintTop_toBottomOf="@+id/nameBtn" />
+
+    <TextView
+        android:id="@+id/nameHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="43dp"
+        android:text="@string/search_for_name"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/nameBtn"
+        app:layout_constraintEnd_toEndOf="@+id/getName"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

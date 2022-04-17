@@ -2,19 +2,18 @@ package com.example.movieapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import androidx.room.Room
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-class AddMovies : AppCompatActivity() {
+class ViewDB : AppCompatActivity() {
 
     private lateinit var table: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_movies)
+        setContentView(R.layout.activity_view_db)
 
         table = findViewById(R.id.table)
 

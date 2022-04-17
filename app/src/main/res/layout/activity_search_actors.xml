@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="LabelFor"
-    tools:context=".SearchActors">
+    tools:context=".SearchActors"
+    tools:ignore="LabelFor">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginTop="98dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="35dp"
         android:text="@string/search_for_actor"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/getActor"
@@ -25,8 +25,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="18dp"
         android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
@@ -41,25 +41,14 @@
         android:id="@+id/actorBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="18dp"
         android:text="@string/searchA"
         app:layout_constraintBottom_toTopOf="@+id/actorTv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/getActor"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/actorToDB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:text="@string/add_to_dbA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/actorTv" />
 
     <TextView
         android:id="@+id/actorTv"
@@ -67,9 +56,9 @@
         android:layout_height="0dp"
         android:layout_marginStart="14dp"
         android:layout_marginEnd="14dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="124dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/actorToDB"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/getActor" />
