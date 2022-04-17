@@ -38,6 +38,7 @@ class SearchName : AppCompatActivity() {
         val stb = StringBuilder()
 
         nameBtn.setOnClickListener {
+            nameTv.text = ""
             val movieName = getName.text.toString()
             val urlString = "https://www.omdbapi.com/?s=${movieName}&apikey=7086918a"
             val url = URL(urlString)
@@ -45,7 +46,6 @@ class SearchName : AppCompatActivity() {
 
             runBlocking {
                 launch {
-                    // run the code of the coroutine in a new thread
                     withContext(Dispatchers.IO) {
                         val bf = BufferedReader(InputStreamReader(con.inputStream))
                         var line: String? = bf.readLine()

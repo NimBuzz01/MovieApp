@@ -31,18 +31,17 @@ class SearchActors : AppCompatActivity() {
         val moviesDao = db.moviesDao()
 
         actorBtn.setOnClickListener {
+            actorTv.text = ""
             val actorName = getActor.text.toString()
 
             runBlocking {
                 launch {
                     val movies: List<Movies> = moviesDao.getAll()
-                    /*for (m in movies) {
-                        if(actorName?.contains(m.actors)){
+                    for (m in movies) {
+                        if(m.actors.toString().contains(actorName, ignoreCase = true)){
                             actorTv.append("\n ${m.title} , ${m.year}")
-                        } else {
-                            actorTv.append("Hi")
                         }
-                    }*/
+                    }
                 }
             }
         }
