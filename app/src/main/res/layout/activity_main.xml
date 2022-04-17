@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#06113C"
     tools:context=".MainActivity">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="41dp"
         android:text="@string/add_movies_to_db"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewDBBtn" />
@@ -22,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:text="@string/search_for_movies"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addMoviesBtn" />
@@ -32,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/search_for_actors"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchMoviesBtn" />
@@ -43,6 +47,7 @@
         android:layout_marginTop="163dp"
         android:layout_marginBottom="163dp"
         android:text="@string/movieapp"
+        android:textColor="#FFFFFF"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewDBBtn"
@@ -55,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/searchAdd"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/viewDBBtn"
@@ -66,6 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:text="@string/view_db"
+        android:textColor="@color/white"
         app:layout_constraintBaseline_toBaselineOf="@+id/searchBtn"
         app:layout_constraintEnd_toStartOf="@+id/searchBtn"
         app:layout_constraintHorizontal_chainStyle="packed"
