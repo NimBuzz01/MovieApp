@@ -9,8 +9,13 @@ import androidx.room.Query
 interface MoviesDao {
     @Query("Select * from Movies")
     suspend fun getAll(): List<Movies>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(vararg movie: Movies)
+
     @Insert
     suspend fun insertAll(vararg movies: Movies)
+
+    @Query("DELETE FROM Movies")
+    suspend fun deleteTable()
 }

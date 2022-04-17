@@ -11,6 +11,7 @@ import kotlinx.coroutines.runBlocking
 
 class SearchActors : AppCompatActivity() {
 
+    // initialize view variables
     private lateinit var actorBtn: Button
     private lateinit var getActor: EditText
     private lateinit var actorTv: TextView
@@ -20,10 +21,12 @@ class SearchActors : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_actors)
 
+        // assign views to variables
         actorBtn = findViewById(R.id.actorBtn)
         getActor = findViewById(R.id.getActor)
         actorTv = findViewById(R.id.actorTv)
 
+        // initialize database and dao
         val db = Room.databaseBuilder(
             this, MoviesDatabase::class.java,
             "myDatabase"
@@ -36,9 +39,11 @@ class SearchActors : AppCompatActivity() {
 
             runBlocking {
                 launch {
+                    // get all movies from db and looping
                     val movies: List<Movies> = moviesDao.getAll()
                     for (m in movies) {
-                        if(m.actors.toString().contains(actorName, ignoreCase = true)){
+                        // compare input to value in db, ignoring case letters
+                        if (m.actors.toString().contains(actorName, ignoreCase = true)) {
                             actorTv.append("\n ${m.title} , ${m.year}")
                         }
                     }

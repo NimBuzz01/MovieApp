@@ -12,10 +12,12 @@ import kotlinx.coroutines.runBlocking
 class MainActivity : AppCompatActivity() {
 
     // api key 7086918a
+    // initialize shared preferences
     private lateinit var prefs: SharedPreferences
 
-
     var id: Int = 0
+
+    // initialize view variables
     private lateinit var addMoviesBtn: Button
     private lateinit var searchActorsBtn: Button
     private lateinit var searchMoviesBtn: Button
@@ -31,19 +33,29 @@ class MainActivity : AppCompatActivity() {
         prefs = getSharedPreferences("saveData", MODE_PRIVATE)
         id = prefs.getInt("id", 0)
 
+        // assign views to variables
         addMoviesBtn = findViewById(R.id.addMoviesBtn)
         searchActorsBtn = findViewById(R.id.searchActorsBtn)
         searchMoviesBtn = findViewById(R.id.searchMoviesBtn)
         searchBtn = findViewById(R.id.searchBtn)
         viewDBBtn = findViewById(R.id.viewDBBtn)
 
+        // initialize database and dao
         val db = Room.databaseBuilder(
             this, MoviesDatabase::class.java,
             "myDatabase"
         ).build()
         val moviesDao = db.moviesDao()
 
-        addMoviesBtn.setOnClickListener{
+        // clear database for initial launch
+        runBlocking {
+            launch {
+                moviesDao.deleteTable()
+            }
+        }
+
+        // assign json data to database
+        addMoviesBtn.setOnClickListener {
             runBlocking {
                 launch {
                     val movie1 = Movies(
@@ -112,6 +124,7 @@ class MainActivity : AppCompatActivity() {
                     )
                     id++
 
+                    // save id to sharedpreferences
                     val editor = prefs.edit()
                     editor.putInt("id", id)
                     editor.apply()
@@ -119,18 +132,19 @@ class MainActivity : AppCompatActivity() {
                     moviesDao.insertMovies(movie1, movie2, movie3, movie4, movie5)
                 }
             }
-            Toast.makeText(applicationContext,"Movies from json Added!",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Movies from json Added!", Toast.LENGTH_SHORT).show()
 
         }
-        searchMoviesBtn.setOnClickListener{
+        // buttons to go to other activities
+        searchMoviesBtn.setOnClickListener {
             val intent = Intent(this, SearchMovies::class.java)
             startActivity(intent)
         }
-        searchActorsBtn.setOnClickListener{
+        searchActorsBtn.setOnClickListener {
             val intent = Intent(this, SearchActors::class.java)
             startActivity(intent)
         }
-        searchBtn.setOnClickListener{
+        searchBtn.setOnClickListener {
             val intent = Intent(this, SearchName::class.java)
             startActivity(intent)
         }

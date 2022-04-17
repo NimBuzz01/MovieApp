@@ -18,11 +18,10 @@ import java.net.URL
 
 class SearchName : AppCompatActivity() {
 
+    // initialize view variables
     private lateinit var nameBtn: Button
     private lateinit var getName: EditText
     private lateinit var nameTv: TextView
-
-    lateinit var title: String
 
     // https://www.omdbapi.com/?s=moviename&apikey=7086918a
 
@@ -30,6 +29,7 @@ class SearchName : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_name)
 
+        // assign views to variables
         nameBtn = findViewById(R.id.nameBtn)
         getName = findViewById(R.id.getName)
         nameTv = findViewById(R.id.nameTv)
@@ -40,12 +40,14 @@ class SearchName : AppCompatActivity() {
         nameBtn.setOnClickListener {
             nameTv.text = ""
             val movieName = getName.text.toString()
+            // setting url to api and opening http connection
             val urlString = "https://www.omdbapi.com/?s=${movieName}&apikey=7086918a"
             val url = URL(urlString)
             val con: HttpURLConnection = url.openConnection() as HttpURLConnection
 
             runBlocking {
                 launch {
+                    // input stream reader
                     withContext(Dispatchers.IO) {
                         val bf = BufferedReader(InputStreamReader(con.inputStream))
                         var line: String? = bf.readLine()
@@ -61,18 +63,18 @@ class SearchName : AppCompatActivity() {
         }
     }
 
-    private suspend fun parseJSON(stb: java.lang.StringBuilder) {
+    private fun parseJSON(stb: java.lang.StringBuilder) {
         // this contains the full JSON returned by the Web Service
         val json = JSONObject(stb.toString())
-        // Information about all the books extracted by this function
+        // Information about all the movies
         val movieDetails = java.lang.StringBuilder()
-        val jsonArray:JSONArray = json.getJSONArray("Search")
-        // extract all the books from the JSON array
+        val jsonArray: JSONArray = json.getJSONArray("Search")
+        // extract all the movies from the JSON array
         for (i in 0 until jsonArray.length()) {
-            val movie: JSONObject = jsonArray[i] as JSONObject // this is a json object
+            val movie: JSONObject = jsonArray[i] as JSONObject
             // extract the title
             val title = movie["Title"] as String
-            movieDetails.append("${i+1}) \"$title\" \n")
+            movieDetails.append("${i + 1}) \"$title\" \n")
         }
         nameTv.text = movieDetails
     }

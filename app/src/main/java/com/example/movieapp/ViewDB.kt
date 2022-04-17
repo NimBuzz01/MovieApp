@@ -17,6 +17,7 @@ class ViewDB : AppCompatActivity() {
 
         table = findViewById(R.id.table)
 
+        // initialize db and dao
         val db = Room.databaseBuilder(
             this, MoviesDatabase::class.java,
             "myDatabase"
@@ -25,6 +26,7 @@ class ViewDB : AppCompatActivity() {
 
         runBlocking {
             launch {
+                // output all movie names in db
                 val movies: List<Movies> = moviesDao.getAll()
                 for (m in movies) {
                     table.append("\n ${m.title} , ${m.year}")
